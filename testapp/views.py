@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.utils import timezone
+from .models import Post
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,10 +12,9 @@ class TestView(APIView):
     """
 
     def get(self, request, format=None):
-        return Response({'detail': "Hello REST World"})
+        return Response({'detail': "This is a test REST Api"})
+
 
 def post_list(request):
-    return render(request, 'testapp/post_list.html', {})
-
-
-# Create your views here.
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'testapp/post_list.html', {'posts': posts})

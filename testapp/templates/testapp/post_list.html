@@ -1,21 +1,23 @@
-<html>
+{% load staticfiles %}
+    <html>
         <head>
-            <title>Application to test API</title>
+            <title>Django Girls blog</title>
+            
+            <link rel="stylesheet" type="text/css" href="{% static 'testapp/style.css' %}">
         </head>
+        <h1><a href="/">Django Girls Blog</a></h1>
         <body>
             <div>
-                <h1><a href="">Application to test API</a></h1>
-            </div>
+        <h1><a href="/">Django Girls Blog</a></h1>
+    </div>
 
-            <div>
-                <h2><a href="">this is test post</a></h2>
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            </div>
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 
-            <div>
-                <p>published: 14.06.2014, 12:14</p>
-                <h2><a href="">second test post</a></h2>
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-            </div>
         </body>
     </html>
