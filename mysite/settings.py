@@ -52,6 +52,8 @@ REST_FRAMEWORK = {
     )
 }
 
+LOGIN_URL = '/login/'
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

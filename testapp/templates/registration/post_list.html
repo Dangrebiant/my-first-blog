@@ -1,0 +1,51 @@
+{% load staticfiles %}
+    <html>
+        <head>
+            <title>Test application for REST API</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" type="text/css" href="{% static 'testapp/css/bootstrap.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'testapp/css/style.css' %}">
+            <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" >
+        </head>
+         <body class = "container">   
+        <div class="jumbotron">
+        <h1><a class = "lob" href="/">Test application for REST API</a></h1>
+        <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand" href="#">Representation:</p>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">User friendly</a></li>
+      <li><a href="#">JSON</a></li>
+      
+    </ul>
+  </div>
+</nav>
+            <div>
+        <h2>Here is the list of posts:</h1>
+
+    </div>
+    <a href="#"><button type="button"
+     class="button1">Create post</button></a>
+
+<div class="well">
+    <div class="content container",>
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            {{ post.published_date }}
+                        </div>
+                        <h3><a href="">{{ post.title }}</a></h1>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+      </div>
+        </body>
+    </html>
